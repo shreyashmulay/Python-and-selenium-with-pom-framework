@@ -82,15 +82,14 @@ then push code to GitHub it is golbal repository
     -> git config --global user.name "shreyash"
     -> git config --global user.email "shreyashmulay2001@gmail.com"
 4. check status and add code to staging / buffer area it is between code and git
-    -> git status
-    -> git add. or git add -A
-    -> git commit
-
+    -> git status  -> gives red color if file is not added
+    -> git add     -> add all files to staging area
+    -> git status  -> gives green color if file is added
+    -> git commit -m "Message here" -> gives red color if file is not added
+5. push code to main GitHub Repository
+    -> git push -u origin master
+6. To pull new files
+    -> git pull
 
  to run Jenkins download jar file and use command : java -jar jenkins.war --httpPort=8081
-
-
-
-
-
 '''
