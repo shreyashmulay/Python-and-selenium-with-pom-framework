@@ -91,5 +91,35 @@ then push code to GitHub it is golbal repository
 6. To pull new files
     -> git pull
 
- to run Jenkins download jar file and use command : java -jar jenkins.war --httpPort=8081
+# Jenkins
+Setup git in Jenkins
+1. copu git bin folder: C:\Program Files\Git\bin\git.exe
+2. on Jenkins dashboard:
+        -> Settings/ Manage Jenkins
+        -> Tools -> inside git section -> add git.exe path
+        -> apply and save
+        Note:  note give git path where git is install on devops machine don't give local path
+
+1. to run Jenkins download java version compatable jar file and use command in terminal
+    -> java -jar jenkins.war --httpPort=8081
+2. open chrome and localhost website : http://localhost:8081/
+ -> create new item
+ -> give name and select free style project
+ -> at configure page :
+        -> add description if wanted
+        -> source code management section : select Git
+                            -> add repository url
+                            ->  check branch name default is master branch keep it as it is.
+        -> Build Steps section :
+                -> add build step: Execute Windows batch command
+                -> add command : run.bat    # since we added steps in run.bat file
+                OR #commands from bat file here
+                -> add command : pytest -s -v -m "sanity" --html=./Reports/report_chrome.html testCases/ --browser chrome
+
+        optional:
+        -> post build action:
+            -> you can add any email notification is common
+ -> Run project:
+        -> inside latest created project click on Build now
+        ->
 '''
